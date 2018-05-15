@@ -21,9 +21,17 @@ void setPin11(boolean high) {
 
 // Excercise 2
 void setPin11Asm(boolean high) {
-  asm (
-  "sbi %0, %1 \n"
-  : : "I" (_SFR_IO_ADDR(PORTB)), "I" (PORTB3)
-);
+  if (high) {
+    asm (
+    "sbi %0, %1 \n"
+    : : "I" (_SFR_IO_ADDR(PORTB)), "I" (PORTB3)
+    );
+    }else {
+      asm (
+      "sbi %0, %1 \n"
+      : : "I" (_SFR_IO_ADDR(PORTB)), "I" (PORTB3)
+    );
+      
+      }
   
   }
