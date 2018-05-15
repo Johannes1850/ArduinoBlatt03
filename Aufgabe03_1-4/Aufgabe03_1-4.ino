@@ -28,10 +28,8 @@ void setPin11Asm(boolean high) {
     );
     }else {
       asm (
-      "sbi %0, %1 \n"
+      "cbi %0, %1 \n"
       : : "I" (_SFR_IO_ADDR(PORTB)), "I" (PORTB3)
-    );
-      
+       );
       }
-  
   }
