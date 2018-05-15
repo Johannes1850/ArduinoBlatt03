@@ -2,8 +2,26 @@
 // HWP Code: Low level ADC
 
 void setup() {
-  setPin11Asm(true);
-  
+  float time1 = millis();
+  for (int x = 1; x <= 100000; x++) {
+    setPin11(true);
+    setPin11(false);
+    }
+  time1 = millis() - time1;
+
+  float time2 = millis();
+  for (int x = 1; x <= 100000; x++) {
+    setPin11Asm(true);
+    setPin11Asm(false);
+    }
+  time2 = millis() - time2;
+
+  float time3 = millis();
+  for (int x = 1; x <= 100000; x++) {
+    digitalWrite(11, HIGH);
+    digitalWrite(11, LOW);
+    }
+  time3 = millis() - time3;
 }
 
 void loop() {
