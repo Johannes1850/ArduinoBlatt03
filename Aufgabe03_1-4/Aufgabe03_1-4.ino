@@ -8,30 +8,7 @@
 // digitalWrite, mit 2 Sekunden
 
 void setup() {
-  Serial.begin(9600);
-  double time1 = millis();
-  for (long x = 1; x <= 100000; x++) {
-    setPin11(true);
-    setPin11(false);
-  }
-  time1 = millis() - time1;
-  Serial.println("Time 1 : " + String(time1/1000.0));
-
-  double time2 = millis();
-  for (long x = 1; x <= 100000; x++) {
-    setPin11Asm(true);
-    setPin11Asm(false);
-  }
-  time2 = millis() - time2;
-  Serial.println("Time 2 : " + String(time2/1000.0));
-
-  double time3 = millis();
-  for (long x = 1; x <= 100000; x++) {
-    digitalWrite(11, HIGH);
-    digitalWrite(11, LOW);
-  }
-  time3 = millis() - time3;
-  Serial.println("Time 3 : " + String(time3/1000.0));
+  
 }
 
 void loop() {
@@ -60,3 +37,31 @@ void setPin11Asm(boolean high) {
     );
   }
 }
+
+// Excercise 3
+void timeTest() {
+  Serial.begin(9600);
+  double time1 = millis();
+  for (long x = 1; x <= 100000; x++) {
+    setPin11(true);
+    setPin11(false);
+  }
+  time1 = millis() - time1;
+  Serial.println("Time 1 : " + String(time1/1000.0));
+
+  double time2 = millis();
+  for (long x = 1; x <= 100000; x++) {
+    setPin11Asm(true);
+    setPin11Asm(false);
+  }
+  time2 = millis() - time2;
+  Serial.println("Time 2 : " + String(time2/1000.0));
+
+  double time3 = millis();
+  for (long x = 1; x <= 100000; x++) {
+    digitalWrite(11, HIGH);
+    digitalWrite(11, LOW);
+  }
+  time3 = millis() - time3;
+  Serial.println("Time 3 : " + String(time3/1000.0));
+  }
