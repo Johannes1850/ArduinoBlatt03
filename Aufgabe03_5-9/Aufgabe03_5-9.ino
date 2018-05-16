@@ -5,10 +5,24 @@
 
 void setup() {
 
+  pinMode(12, OUTPUT);
+
+  
+
 }
 
 
 void loop() {
+  
+}
+
+void timer(){
+  // disable all interrupts
+  cli();
+
+
+
+  sei();  
 }
 
 
