@@ -8,7 +8,7 @@
 // digitalWrite, mit 2 Sekunden
 
 // Zu Aufgabe 4 : die nicht optimierte setPin12Asm Funktion braucht mit 1.16 sek am kürzesten. Danach
-// die setPin12 Funktion mit 1.37 sek, und am längsten braucht
+// die nicht optimierte setPin12 Funktion mit 1.37 sek, und am längsten braucht
 // digitalWrite, mit 1.8 Sekunden.
 
 void setup() {
