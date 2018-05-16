@@ -2,14 +2,18 @@
 
 #define tonePin 12
 boolean led = true;
-int prescalers[7] = {1, 8, 32, 64, 128, 256, 1024};
+boolean pin11 = true;
+int prescalers[7] = {1,8,32,64,128,256,1024};
 volatile uint32_t tCount = 0;
+volatile uint32_t sCount = 0;
+volatile uint8_t index = 0;
 unsigned long f = 1000;
+uint32_t duration[10] = {600, 800, 1500, 950, 2300, 2000, 1100, 1900, 2400, 900};
+
 
 void setup(){
   Serial.begin(115200);
   pinMode(tonePin, OUTPUT);
-  every1ms();
 }
 
 
@@ -89,6 +93,13 @@ void every1ms() {
 
 // Interrupt
 ISR(TIMER2_COMPA_vect) {
+  if (tCount >= sCount) {
+    index++;
+    index = index % 9;
+    pin11 = not pin11;
+    digitalWrite(11, pin11);
+    sCount = tCount + duration[index];
+    }
   tCount += 1;
   TCNT2 = 0;  
   led = not led;
