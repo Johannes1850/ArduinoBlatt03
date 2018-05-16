@@ -1,8 +1,5 @@
 #include <SoftwareSerial.h>
 
-// Copyright 2015: Jan Burchard
-// HWP Code: Low level ADC
-
 // Zu Aufgabe 3 : die setPin11 Funktion braucht mit 0.12 sek am kürzesten. Danach
 // die setPin11Asm Funktion mit 0.13 sek, und mit Abstand am längsten braucht
 // digitalWrite, mit 2 Sekunden
