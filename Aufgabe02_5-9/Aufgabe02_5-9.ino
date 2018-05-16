@@ -9,10 +9,9 @@ void setup(){
 
 
 void tone100Hz() {
-  pinMode(tonePin, OUTPUT);  // Ausgabe LED festlegen
+  pinMode(tonePin, OUTPUT);
   Serial.begin(9600);
-  // Timer 1
-  noInterrupts();           // Alle Interrupts temporär abschalten
+  noInterrupts();
   TCCR2A = 0;
   TCCR2B = 0;
   TCNT2 = 0;
@@ -23,7 +22,7 @@ void tone100Hz() {
   interrupts();             
 }
 ISR(TIMER2_COMPA_vect) {
-  TCNT2 = 0;    
+  TCNT2 = 0;  
   led = not led;
   digitalWrite(tonePin, led);
   // LED ein und aus
