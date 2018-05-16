@@ -3,8 +3,12 @@
 #define tonePin 12
 boolean led = true;
 
-void setup()
-{
+void setup(){
+  tone100Hz();
+}
+
+
+void tone100Hz() {
   pinMode(tonePin, OUTPUT);  // Ausgabe LED festlegen
   Serial.begin(9600);
   // Timer 1
@@ -18,16 +22,15 @@ void setup()
   TIMSK2 |= (1 << OCIE1A);  
   interrupts();             
 }
-
-ISR(TIMER2_COMPA_vect)        
-{
+ISR(TIMER2_COMPA_vect) {
   TCNT2 = 0;    
   led = not led;
   digitalWrite(tonePin, led);
   // LED ein und aus
-}
+  }
+
 
 void loop()
 {
-  // Wir könnten hier zusätzlichen Code integrieren
+  
 }
